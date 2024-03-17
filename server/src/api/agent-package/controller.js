@@ -1,0 +1,271 @@
+import { success, notFound } from '../../services/response/'
+import { AgentPackage } from '.'
+import mongoose, { Schema, set } from 'mongoose'
+const ObjectId = require('mongodb').ObjectId;
+
+export const create = ({ bodymen: { body } }, res, next) =>
+  AgentPackage.create(body)
+    .then((agentPackage) => agentPackage.view(true))
+    .then(success(res, 201))
+    .catch(next)
+
+export const index = ({ querymen: { query, select, cursor } }, res, next) =>
+  AgentPackage.count(query)
+    .then(count => AgentPackage.find(query, select, cursor)
+      .then((destinations) => ({
+        count,
+        rows: destinations.map((agentPackage) => agentPackage.view())
+      }))
+    )
+    .then(success(res))
+    .catch(next)
+
+export const show = ({ params }, res, next) =>
+  AgentPackage.findById(params.id)
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view() : null)
+    .then(success(res))
+    .catch(next)
+
+export const update = async  (req, res, next) => {
+
+  var selector;
+  var query;
+  var filter;
+  var itineraryObject = [];
+  //check req.params
+  if (req.params.id && req.params.pid && req.params.iteid) {
+    if (req.body) {
+      const newJson = {};
+
+      Object.entries(req.body).forEach(([key, value]) => newJson['packages.$.itinerary.$[item].' + key] = value);
+
+
+      var query = { $set: newJson }
+
+      console.log(query)
+    }
+    filter = {
+      "arrayFilters": [{ "item._id": req.params.iteid }]
+    }
+
+    selector = {
+      "_id": req.params.id,
+      "packages._id": req.params.pid
+    }
+  }
+  else if (req.params.id && req.params.pid && req.params.depid) {
+    if (req.body) {
+      const newJson = {};
+
+      Object.entries(req.body).forEach(([key, value]) => newJson['packages.$.departures.$[item].' + key] = value);
+
+
+      var query = { $set: newJson }
+      console.log(query)
+    }
+    selector = {
+      "_id": req.params.id,
+      "packages._id": req.params.pid
+    }
+    filter = {
+      "arrayFilters": [{ "item._id": req.params.depid }]
+    }
+  }
+  else if (req.params.id && req.params.pid && req.params.did) {
+    if (req.body) {
+      const newJson = {};
+
+      Object.entries(req.body).forEach(([key, value]) => newJson['packages.$.destionation' + key] = value);
+
+
+      var query = { $set: newJson }
+      console.log(query)
+    }
+    var selector = {
+      "_id": req.params.id,
+      "packages._id": req.params.pid
+
+    }
+
+  }
+  else if (req.params.id && req.params.pid) {
+    if (req.body) {
+      const newJson = {};
+
+      Object.entries(req.body).forEach(([key, value]) => newJson['packages.$.' + key] = value);
+
+
+      var query = { $set: newJson }
+      console.log(query)
+    }
+    var selector = {
+      "_id": req.params.id,
+      "packages._id": req.params.pid
+    }
+
+  }
+  else {
+    if (req.body) {
+
+      const newJson = {};
+
+      Object.entries(req.body).forEach(([key, value]) => newJson[key] = value);
+
+
+      var query = { $set: newJson }
+    }
+    var selector = {
+      "_id": req.params.id,
+
+    }
+  }
+
+  //
+  //Main query
+ await  AgentPackage.find({_id:req.params.id})
+    .then(d => {
+      console.log(d, "called")
+    })
+
+
+  AgentPackage.findOneAndUpdate(selector, query, filter)
+    .then(notFound(res))
+    .then(d => AgentPackage.findById(req.params.id))
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+
+
+export const deleteItinerary = (req, res, next) => {
+  var query;
+  var filter;
+  var selector
+  selector = {
+    "_id": req.params.id,
+    "packages._id": req.params.pid
+  }
+  query = {
+    "$pull": {
+      "packages.$.itinerary": {
+        "_id": req.params.iteid
+      }
+    }
+  }
+
+
+  AgentPackage.findOneAndUpdate(selector, query, filter)
+    .then(notFound(res))
+    .then(d => AgentPackage.findById(req.params.id))
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const postItinerary = (req, res, next) => {
+  var query;
+  var filter;
+  var selector = {
+    "_id": req.params.id,
+    "packages._id": req.params.pid
+  }
+  query = {
+    '$push': {
+      'packages.$.itinerary': req.body
+    }
+  }
+  AgentPackage.findOneAndUpdate(selector, query, filter)
+    .then(notFound(res))
+    .then(d => AgentPackage.findById(req.params.id))
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const deleteDepartures = (req, res, next) => {
+  var query;
+  var filter;
+  var selector = {
+    "_id": req.params.id,
+    "packages._id": req.params.pid
+  }
+  query = {
+    "$pull": {
+      "packages.$.departures": {
+        "_id": req.params.depid
+      }
+    }
+  }
+  console.log(query)
+  AgentPackage.findOneAndUpdate(selector, query, filter)
+    .then(notFound(res))
+    .then(d => AgentPackage.findById(req.params.id))
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const postDepartures = (req, res, next) => {
+  var query;
+  var filter;
+  var selector = {
+    "_id": req.params.id,
+    "packages._id": req.params.pid
+  }
+  query = {
+    '$push': {
+      'packages.$.departures': req.body
+    }
+  }
+  AgentPackage.findOneAndUpdate(selector, query, filter)
+    .then(notFound(res))
+    .then(d => AgentPackage.findById(req.params.id))
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const createPackage = (req, res, next) => {
+  var query;
+  var filter;
+  // check if org create with id if not create one
+  var selector = {
+    "_id": req.params.id
+  }
+  query = {
+    '$push': {
+      'packages': req.body
+    }
+  }
+  AgentPackage.findOneAndUpdate(selector, query,{new:true})
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const deletePackage = (req, res, next) => {
+  var query;
+  var filter;
+  // check if org create with id if not create one
+  var selector = {
+    "_id": req.params.id
+  }
+  query = {
+    '$pull': {
+      'packages': {'_id':req.params.pid}
+    }
+  }
+  AgentPackage.findOneAndUpdate(selector, query,{new:true})
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.view(true) : null)
+    .then(success(res))
+    .catch(next)
+}
+export const destroy = ({ params }, res, next) =>
+  AgentPackage.findById(params.id)
+    .then(notFound(res))
+    .then((agentPackage) => agentPackage ? agentPackage.remove() : null)
+    .then(success(res, 204))
+    .catch(next)

@@ -1,0 +1,161 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "agent_packages",
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": "objectId",
+            "primaryKey": true,
+            "GUID": "bfe7d120-2e0b-11ea-8d74-815ee5be23e6"
+        },
+        "org_id": {
+            "type": "string",
+            "GUID": "fe2643e0-2e0b-11ea-8d74-815ee5be23e6"
+        },
+        "packages": {
+            "type": "array",
+            "additionalItems": true,
+            "minItems": 1,
+            "maxItems": 50,
+            "uniqueItems": true,
+            "GUID": "10b4c8b0-2e0c-11ea-8d74-815ee5be23e6",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 25,
+                        "sample": "Nepal",
+                        "GUID": "db1f0570-2e0c-11ea-8d74-815ee5be23e6"
+                    },
+                    "itinerary": {
+                        "type": "array",
+                        "additionalItems": true,
+                        "uniqueItems": false,
+                        "GUID": "0ee76640-2e0d-11ea-8d74-815ee5be23e6",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "day": {
+                                    "type": "number",
+                                    "GUID": "48e5be50-2e0d-11ea-8d74-815ee5be23e6"
+                                },
+                                "mode": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 10,
+                                    "enum": [
+                                        "Drive",
+                                        "Fly",
+                                        "Walk"
+                                    ],
+                                    "GUID": "80d9c770-2e0d-11ea-8d74-815ee5be23e6"
+                                },
+                                "from": {
+                                    "type": "string",
+                                    "minLength": 5,
+                                    "maxLength": 20,
+                                    "sample": "Chipladhunga",
+                                    "GUID": "ba119b30-2e0d-11ea-8d74-815ee5be23e6"
+                                },
+                                "to": {
+                                    "type": "string",
+                                    "minLength": 2,
+                                    "maxLength": 20,
+                                    "sample": "Poon hill",
+                                    "GUID": "e3ddfc10-2e0d-11ea-8d74-815ee5be23e6"
+                                },
+                                "duration_hrs": {
+                                    "type": "number",
+                                    "minimum": 1,
+                                    "maximum": 24,
+                                    "sample": 3,
+                                    "GUID": "0f6c3130-2e0e-11ea-8d74-815ee5be23e6"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "GUID": "0f113560-2e0d-11ea-8d74-815ee5be23e6",
+                            "required": [
+                                "day",
+                                "mode",
+                                "from",
+                                "to"
+                            ]
+                        }
+                    },
+                    "departures": {
+                        "type": "array",
+                        "additionalItems": true,
+                        "uniqueItems": false,
+                        "GUID": "7c140c90-2e0e-11ea-8d74-815ee5be23e6",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "start_date": {
+                                    "type": "timestamp",
+                                    "GUID": "94f845a0-2e0e-11ea-8d74-815ee5be23e6"
+                                },
+                                "end_date": {
+                                    "type": "timestamp",
+                                    "GUID": "c63b3410-2e0e-11ea-8d74-815ee5be23e6"
+                                },
+                                "price": {
+                                    "type": "number",
+                                    "minimum": 1,
+                                    "GUID": "d7946d30-2e0e-11ea-8d74-815ee5be23e6"
+                                },
+                                "availability": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Guaranteed",
+                                        "Available",
+                                        "Limited"
+                                    ],
+                                    "GUID": "fc6f8bd0-2e0e-11ea-8d74-815ee5be23e6"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "GUID": "7c457cd0-2e0e-11ea-8d74-815ee5be23e6",
+                            "required": [
+                                "start_date",
+                                "availability"
+                            ]
+                        }
+                    },
+                    "destination": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "comments": "This has  all the fields of destination  collection as shown earlier ",
+                        "GUID": "8a9921a0-2e0f-11ea-8d74-815ee5be23e6"
+                    }
+                },
+                "additionalProperties": false,
+                "GUID": "4ba521e0-2e0c-11ea-8d74-815ee5be23e6",
+                "required": [
+                    "region",
+                    "destination"
+                ]
+            }
+        },
+        "best_sellers": {
+            "type": "array",
+            "additionalItems": true,
+            "uniqueItems": false,
+            "GUID": "e7664d90-2e0f-11ea-8d74-815ee5be23e6",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "GUID": "e780da70-2e0f-11ea-8d74-815ee5be23e6"
+            }
+        }
+    },
+    "capped": false,
+    "validationLevel": "Off",
+    "validationAction": "Warn",
+    "required": [
+        "id",
+        "packages"
+    ]
+}

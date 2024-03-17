@@ -1,0 +1,592 @@
+{
+    "GUID": "711b1660-2e0b-11ea-8d74-815ee5be23e6",
+    "modelName": "Treks",
+    "code": "",
+    "lastModifTS": "2020-01-03T09:28:46.538Z",
+    "persistenceSchemaVersion": "3",
+    "description": "",
+    "comments": "",
+    "author": "",
+    "version": "",
+    "collections": [
+        {
+            "GUID": "e134f2c0-2bb5-11ea-a245-ef0c3617abc3",
+            "collectionName": "destination",
+            "code": "",
+            "type": "object",
+            "description": "",
+            "comments": "",
+            "$schema": "",
+            "additionalProperties": false,
+            "properties": [
+                {
+                    "type": "objectId",
+                    "format": "",
+                    "primaryKey": true,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "sample": "",
+                    "GUID": "01c6f600-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "id",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10,
+                    "pattern": "",
+                    "format": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [],
+                    "sample": "EH265",
+                    "GUID": "21d08f60-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "dest_id",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "array",
+                    "properties": [
+                        {
+                            "type": "string",
+                            "minLength": "",
+                            "maxLength": "",
+                            "pattern": "",
+                            "format": "",
+                            "default": "",
+                            "primaryKey": false,
+                            "relationshipType": "",
+                            "parentRelationship": "",
+                            "childRelationships": [],
+                            "foreignCollection": "",
+                            "foreignField": [],
+                            "enum": [],
+                            "sample": "",
+                            "GUID": "388c9140-2bb6-11ea-a245-ef0c3617abc3",
+                            "description": "",
+                            "comments": "",
+                            "required": false,
+                            "id": "",
+                            "hackoladeMeta": {},
+                            "arrayItem": true,
+                            "arrayParentType": "array"
+                        }
+                    ],
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "additionalItems": true,
+                    "minItems": 1,
+                    "maxItems": 12,
+                    "uniqueItems": true,
+                    "enum": [],
+                    "GUID": "386e81f0-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "seasons",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 15,
+                    "pattern": "",
+                    "format": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [
+                        "hotel",
+                        "tea house ",
+                        "lodge"
+                    ],
+                    "sample": "",
+                    "GUID": "4e784ad0-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "accomodation",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "numeric",
+                    "mode": "",
+                    "unit": "",
+                    "minimum": 1,
+                    "exclusiveMinimum": false,
+                    "maximum": 50,
+                    "exclusiveMaximum": false,
+                    "multipleOf": "",
+                    "divisibleBy": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [],
+                    "sample": "",
+                    "GUID": "653907a0-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "group_size",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 25,
+                    "pattern": "",
+                    "format": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [],
+                    "sample": "Chipledhunga",
+                    "GUID": "92d200e0-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "starting_point",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 25,
+                    "pattern": "",
+                    "format": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [],
+                    "sample": "Poon Hill",
+                    "GUID": "a00eace0-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "end_point",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 15,
+                    "pattern": "",
+                    "format": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [
+                        "Difficult",
+                        "Medium",
+                        "East"
+                    ],
+                    "sample": "",
+                    "GUID": "ada8bb20-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "difficulty_level",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "numeric",
+                    "mode": "",
+                    "unit": "",
+                    "minimum": 1500,
+                    "exclusiveMinimum": false,
+                    "maximum": 10000,
+                    "exclusiveMaximum": false,
+                    "multipleOf": "",
+                    "divisibleBy": "",
+                    "default": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "enum": [],
+                    "sample": "",
+                    "GUID": "c796ea20-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "altitude",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "default": "",
+                    "format": "",
+                    "sample": "",
+                    "GUID": "f4de8f10-2bb6-11ea-a245-ef0c3617abc3",
+                    "name": "created_on",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "timestamp",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "default": "",
+                    "format": "",
+                    "sample": "",
+                    "GUID": "0542b9d0-2bb7-11ea-a245-ef0c3617abc3",
+                    "name": "last_modified_on",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "objectId",
+                    "format": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "sample": "",
+                    "GUID": "247f1820-2bb7-11ea-a245-ef0c3617abc3",
+                    "name": "created_by",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                },
+                {
+                    "type": "objectId",
+                    "format": "",
+                    "primaryKey": false,
+                    "relationshipType": "",
+                    "parentRelationship": "",
+                    "childRelationships": [],
+                    "foreignCollection": "",
+                    "foreignField": [],
+                    "sample": "",
+                    "GUID": "2f328130-2bb7-11ea-a245-ef0c3617abc3",
+                    "name": "modified_by",
+                    "code": "",
+                    "description": "",
+                    "comments": "",
+                    "dependencies": [],
+                    "required": true,
+                    "id": "",
+                    "hackoladeMeta": {},
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "e13b3450-2bb5-11ea-a245-ef0c3617abc3"
+            },
+            "capped": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "size": "",
+            "max": "",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "key": "",
+                "hashed": false,
+                "unique": true,
+                "numInitialChunks": "",
+                "collation": "null",
+                "zone": "",
+                "comments": ""
+            },
+            "bucketId": "c1c74b40-2bb5-11ea-a245-ef0c3617abc3",
+            "hackoladeMeta": {
+                "validationErrors": {}
+            }
+        }
+    ],
+    "buckets": [
+        {
+            "GUID": "c1c74b40-2bb5-11ea-a245-ef0c3617abc3",
+            "name": "Trek",
+            "code": "",
+            "type": "bucket",
+            "description": "",
+            "comments": "",
+            "collectionIds": [
+                "e134f2c0-2bb5-11ea-a245-ef0c3617abc3"
+            ],
+            "backgroundColor": {
+                "r": 216,
+                "g": 0,
+                "b": 115,
+                "a": 1
+            },
+            "show": true,
+            "hackoladeMeta": {
+                "validationErrors": {
+                    "name": false
+                }
+            }
+        }
+    ],
+    "views": [],
+    "relationships": [],
+    "users": [],
+    "idToNameHashTable": {
+        "a5607b20-2bb5-11ea-a245-ef0c3617abc3": "New_Database",
+        "c1c74b40-2bb5-11ea-a245-ef0c3617abc3": "Trek",
+        "e134f2c0-2bb5-11ea-a245-ef0c3617abc3": "destination",
+        "01c6f600-2bb6-11ea-a245-ef0c3617abc3": "id",
+        "21d08f60-2bb6-11ea-a245-ef0c3617abc3": "dest_id",
+        "386e81f0-2bb6-11ea-a245-ef0c3617abc3": "seasons",
+        "4e784ad0-2bb6-11ea-a245-ef0c3617abc3": "accomodation",
+        "653907a0-2bb6-11ea-a245-ef0c3617abc3": "group_size",
+        "92d200e0-2bb6-11ea-a245-ef0c3617abc3": "starting_point",
+        "a00eace0-2bb6-11ea-a245-ef0c3617abc3": "end_point",
+        "ada8bb20-2bb6-11ea-a245-ef0c3617abc3": "difficulty_level",
+        "c796ea20-2bb6-11ea-a245-ef0c3617abc3": "altitude",
+        "f4de8f10-2bb6-11ea-a245-ef0c3617abc3": "created_on",
+        "0542b9d0-2bb7-11ea-a245-ef0c3617abc3": "last_modified_on",
+        "247f1820-2bb7-11ea-a245-ef0c3617abc3": "created_by",
+        "2f328130-2bb7-11ea-a245-ef0c3617abc3": "modified_by"
+    },
+    "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "9d750bb0-2bb5-11ea-a245-ef0c3617abc3"
+    },
+    "externalDefinitions": {
+        "type": "externalDefinitions",
+        "properties": [],
+        "GUID": "9d750bb1-2bb5-11ea-a245-ef0c3617abc3"
+    },
+    "decorativeSymbols": [
+        {
+            "GUID": "a3757730-2bb9-11ea-a245-ef0c3617abc3",
+            "type": "annotation",
+            "value": "This relationship implies of creation of third collection named \"org_destinations\" with both parent child key as composite key ",
+            "name": "For Provides ",
+            "bucketId": "c1c74b40-2bb5-11ea-a245-ef0c3617abc3"
+        },
+        {
+            "GUID": "fc787bc0-2bb9-11ea-a245-ef0c3617abc3",
+            "type": "annotation",
+            "value": "All collection by default has these three attributes \nlast_modified_on , created_on, created_by & modified_by .Here after this will not be shown in other collections",
+            "name": "Note",
+            "bucketId": "c1c74b40-2bb5-11ea-a245-ef0c3617abc3"
+        }
+    ],
+    "dbVersion": "v4.2",
+    "dbVendor": "MongoDB",
+    "hideModelViews": true,
+    "appTarget": "MONGODB",
+    "creationTS": "2019-12-31T10:09:21.895Z",
+    "hackoladeMeta": {
+        "validationErrors": {
+            "modelName": false
+        }
+    },
+    "hideForeignMaster": true,
+    "isCreatedByPlugin": true,
+    "pluginInformation": {
+        "pluginEngineVersion": "1.0.0"
+    },
+    "applicationInformation": {
+        "version": "3.5.5"
+    },
+    "settings": {
+        "centralPane": {
+            "dbLevel": {
+                "erd": [
+                    {
+                        "GUID": "e134f2c0-2bb5-11ea-a245-ef0c3617abc3",
+                        "x": 334,
+                        "y": 223,
+                        "width": 264,
+                        "height": 226,
+                        "color": {}
+                    }
+                ],
+                "buckets": [
+                    {
+                        "x": 209,
+                        "y": 154,
+                        "GUID": "a5607b20-2bb5-11ea-a245-ef0c3617abc3"
+                    },
+                    {
+                        "x": 280,
+                        "y": 153,
+                        "GUID": "c1c74b40-2bb5-11ea-a245-ef0c3617abc3"
+                    }
+                ],
+                "collapsedNodes": [
+                    "386e81f0-2bb6-11ea-a245-ef0c3617abc3"
+                ],
+                "activeRelationship": "",
+                "selectedCollections": [],
+                "decorativeSymbols": [
+                    {
+                        "GUID": "a3757730-2bb9-11ea-a245-ef0c3617abc3",
+                        "x": 371,
+                        "y": 596,
+                        "height": 110,
+                        "width": 227
+                    },
+                    {
+                        "GUID": "fc787bc0-2bb9-11ea-a245-ef0c3617abc3",
+                        "x": 320,
+                        "y": 458,
+                        "height": 129,
+                        "width": 242,
+                        "color": {
+                            "hsl": {
+                                "h": 45.18218623481781,
+                                "s": 0.9919678714859438,
+                                "l": 0.5117647058823529,
+                                "a": 1
+                            },
+                            "hex": "#fec107",
+                            "rgb": {
+                                "r": 254,
+                                "g": 193,
+                                "b": 7,
+                                "a": 1
+                            },
+                            "hsv": {
+                                "h": 45.18218623481781,
+                                "s": 0.9724409448818897,
+                                "v": 0.996078431372549,
+                                "a": 1
+                            },
+                            "oldHue": 45.18218623481781,
+                            "source": "hex"
+                        }
+                    }
+                ],
+                "graphView": {
+                    "erd": [],
+                    "buckets": [],
+                    "decorativeSymbols": [],
+                    "hideRelationshipName": false,
+                    "showPropertiesBoxes": false,
+                    "nameAlongTheLine": false,
+                    "forceLayout": true,
+                    "defaultLinkLength": 300
+                },
+                "activeRelationshipFields": {
+                    "childField": [],
+                    "parentField": []
+                },
+                "displayColorPicker": false,
+                "expandCollections": []
+            },
+            "collectionLevel": {},
+            "changed": false
+        },
+        "dtDiagram": {
+            "collapsedNodes": [],
+            "details": true,
+            "hideErdDetails": false
+        }
+    }
+}
